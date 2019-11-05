@@ -1,0 +1,12 @@
+server:
+  port: 7070
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/decent-cat/spring-cloud-config-center.git
+
+
+

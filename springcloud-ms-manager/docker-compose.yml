@@ -1,0 +1,82 @@
+version: '3.7'
+
+
+services:
+  mysql:
+    image: mysql:5.7.27
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      # mysql的数据文件的位置
+      - /springcloud-ms/mysql/datas/:/var/lib/mysql
+      # mysql的配置文件
+      - /springcloud-ms/mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+  eureka1:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-eureka-7961
+      dockerfile: Dockerfile
+    ports:
+      - 7961:7961
+    command: ["java", "-jar", "springcloud-ms-eureka-7961-1.0-SNAPSHOT.jar"]
+#  eureka2:
+#    build:
+#      # Dokcerfile文件所在的位置
+#      context: springcloud-ms-eureka-7962
+#      dockerfile: Dockerfile
+#    ports:
+#      - 7962:7962
+#    command: ["java", "-jar", "springcloud-ms-eureka-7962-1.0-SNAPSHOT.jar"]
+  ms-provider1:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-provider-6001
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+      - eureka1
+      - config-server
+    # 等mysql服务启动，最长等6000s, 然后再启动 jar
+    command: ["./wait-for-it.sh", "-t", "6000", "config-server:7070", "--", "java", "-jar", "springcloud-ms-provider-6001-1.0-SNAPSHOT.jar"]
+  ms-provider2:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-provider-6002
+      dockerfile: Dockerfile
+    deploy:
+      # 表示构建两个集群集群
+      replicas: 2
+    depends_on:
+      - mysql
+      - eureka1
+      - config-server
+    # 等mysql服务启动，最长等6000s, 然后再启动 jar
+    command: ["./wait-for-it.sh", "-t", "6000", "config-server:7070", "--", "java", "-jar", "springcloud-ms-provider-6002-1.0-SNAPSHOT.jar"]
+
+  config-server:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-configserver-7070
+      dockerfile: Dockerfile
+    command: ["./wait-for-it.sh", "-t", "6000", "mysql:3306", "--", "java", "-jar", "springcloud-ms-configserver-7070-1.0-SNAPSHOT.jar"]
+  zuul:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-zuul-9090
+      dockerfile: Dockerfile
+    depends_on:
+      - eureka1
+    ports:
+      - 9090:9090
+    command: ["java", "-jar", "springcloud-ms-zuul-9090-1.0-SNAPSHOT.jar"]
+  consumer:
+    build:
+      # Dokcerfile文件所在的位置
+      context: springcloud-ms-consumer-8080
+      dockerfile: Dockerfile
+    command: ["java", "-jar", "springcloud-ms-consumer-8080-1.0-SNAPSHOT.jar"]
+    depends_on:
+      - eureka1
+

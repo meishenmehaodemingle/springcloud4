@@ -1,0 +1,34 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: zuul-proxy
+
+
+eureka:
+  client:
+    #表示是否从注册中心抓取服务
+    fetch-registry: true
+    # 是否将我这个服务注册到注册中心
+    register-with-eureka: false
+    # 表示注册中心的地址
+    service-url:
+      defaultZone: http://eureka1:7961/eureka/
+
+
+zuul:
+  routes:
+    # 这个名字是随意的
+    ms-provider:
+      serviceId: ms-provider
+      # http://localhost:9090/mp/user
+      path: /mp/**
+    ms-consumer:
+      serviceId: ms-consumer
+      path: /mc/**
+  # *表示将所有的服务都忽略掉，只能通过该服务特定的path进行访问
+  # 没有加上ignored-services的时候，可以通过http//localhost:9090/ms-provider/user
+  # 加上该配置后只能同构  http://localhost:9090/mp/user
+  ignored-services: '*'
+  prefix: /v1  # prefix前缀  suffix 后缀

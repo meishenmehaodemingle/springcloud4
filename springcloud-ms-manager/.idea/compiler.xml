@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-ms-commons" />
+        <module name="springcloud-ms-configserver-7070" />
+        <module name="springcloud-ms-consumer-8080" />
+        <module name="springcloud-ms-eureka-7961" />
+        <module name="springcloud-ms-eureka-7962" />
+        <module name="springcloud-ms-provider-6001" />
+        <module name="springcloud-ms-provider-6002" />
+        <module name="springcloud-ms-zuul-9090" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud-ms-commons" target="1.8" />
+      <module name="springcloud-ms-configserver-7070" target="1.8" />
+      <module name="springcloud-ms-consumer-8080" target="1.8" />
+      <module name="springcloud-ms-eureka-7961" target="1.8" />
+      <module name="springcloud-ms-eureka-7962" target="1.8" />
+      <module name="springcloud-ms-manager" target="1.8" />
+      <module name="springcloud-ms-provider-6001" target="1.8" />
+      <module name="springcloud-ms-provider-6002" target="1.8" />
+      <module name="springcloud-ms-zuul-9090" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

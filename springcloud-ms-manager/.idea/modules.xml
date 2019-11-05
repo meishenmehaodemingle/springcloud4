@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-commons/springcloud-ms-commons.iml" filepath="$PROJECT_DIR$/springcloud-ms-commons/springcloud-ms-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-configserver-7070/springcloud-ms-configserver-7070.iml" filepath="$PROJECT_DIR$/springcloud-ms-configserver-7070/springcloud-ms-configserver-7070.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-consumer-8080/springcloud-ms-consumer-8080.iml" filepath="$PROJECT_DIR$/springcloud-ms-consumer-8080/springcloud-ms-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-eureka-7961/springcloud-ms-eureka-7961.iml" filepath="$PROJECT_DIR$/springcloud-ms-eureka-7961/springcloud-ms-eureka-7961.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-eureka-7962/springcloud-ms-eureka-7962.iml" filepath="$PROJECT_DIR$/springcloud-ms-eureka-7962/springcloud-ms-eureka-7962.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-manager.iml" filepath="$PROJECT_DIR$/springcloud-ms-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-provider-6001/springcloud-ms-provider-6001.iml" filepath="$PROJECT_DIR$/springcloud-ms-provider-6001/springcloud-ms-provider-6001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-provider-6002/springcloud-ms-provider-6002.iml" filepath="$PROJECT_DIR$/springcloud-ms-provider-6002/springcloud-ms-provider-6002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-ms-zuul-9090/springcloud-ms-zuul-9090.iml" filepath="$PROJECT_DIR$/springcloud-ms-zuul-9090/springcloud-ms-zuul-9090.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+server:
+  port: 7962
+
+
+eureka:
+  instance:
+    hostname: eureka2  #eureka的服务机器名
+  client:
+    #表示是否从注册中心抓取服务
+    fetch-registry: false
+    # 是否将我这个服务注册到注册中心
+    register-with-eureka: false
+    # 表示注册中心的地址
+    service-url:
+      defaultZone: http://eureka1:7961/eureka/
+

@@ -1,0 +1,18 @@
+spring:
+  resources:
+    # 可以直接访问
+    static-locations: classpath:/static/
+  thymeleaf:
+    # 后缀名  return "hello" -> hello.html
+    suffix: .html
+    # 前缀，后台绕回来后，定位的路径
+    prefix: classpath:/templates/
+    # 开启thymeleaf
+    enabled: true
+    encoding: utf-8
+    cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/exam?useSSL=false&serverTimezone=UTC
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
